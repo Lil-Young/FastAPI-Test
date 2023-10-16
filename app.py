@@ -1,17 +1,17 @@
-from typing import Union
-
 from fastapi import FastAPI
+from pydantic import BaseModel
+
+class Item(BaseModel):
+    name: str
+    description: str | None = None
+    price: float
+    tax: float | None = None
 
 app = FastAPI()
 
-
-@app.get("/items/{item_id}")
-async def read_item(item_id: str, q: Union[str, None] = None, short: bool = False):
-    item = {"item_id": item_id}
+@app.post("/items/{item_id}")
+async def create_item(item_id: int, item: Item, q: str | None = None):
+    result = {"item_id": item_id, **item.dict()}
     if q:
-        item.update({"q": q})
-    if not short:
-        item.update(
-            {"description": "This is an amazing item that has a long description"}
-        )
-    return item
+        result.update({"q": q})
+    return result
