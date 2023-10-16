@@ -10,8 +10,8 @@ class Item(BaseModel):
 app = FastAPI()
 
 @app.post("/items/{item_id}")
-async def create_item(item_id: int, item: Item, q: str | None = None):
-    result = {"item_id": item_id, **item.dict()}
+async def create_item(item_id: int, name: str, description: str | None = None, price: float | None=None , tax: float | None = None, q: str | None = None):
+    result = {"item_id": item_id, "name": name, "description": description, "price": price, "tax": tax }
     if q:
         result.update({"q": q})
     return result
