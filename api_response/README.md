@@ -2,6 +2,7 @@
 ### API request는 client가 server에게 데이터를 요청하는 작업을 말한다. 
 ### API(request)에는 client에서 서버로 보내는 데이터와 요청 유형을 정의하는데 사용하는 다양한 메서드, 헤더, 본문 등이 포함된다.
 
+
 ## 1. HTTP 메서드 (HTTP Method)
 #### client가 server에게 수행하고자 하는 작업을 나타낸다.
 #### 일반적인 HTTP 메서드로는 GET, POST, PUT, DELETE 등이 있다.
@@ -22,6 +23,7 @@
 #### 3. PUT 요청을 여러번 호출하면 항상 동일한 결과가 생성된다.
 ### DELETE
 #### 1. DELETE 메서드는 지정된 resource를 삭제한다.
+
 
 ## 2. URI (Uniform Resource Identifier)
 #### URI는 인터넷 상의 resource를 고유하게 식별하기 위한 문자열 식별자이다.
@@ -58,6 +60,7 @@
 #### client는 URI를 통해 원격 서버의 resource에 접근하고, resource의 위치를 정확하게 식별할 수 있다. 
 #### URI는 URL과 URN(Uniform Resource Name)으로 나눌 수 있으며, URL은 resource의 위치를 식별하고, URN은 resource의 이름을 식별한다.
 
+
 ## 3. HTTP 헤더 (HTTP Header)
 ### 1. 요청 헤더 (Request Headers)
 #### 1-1. Host: 요청이 전송되는 웹 서버의 호스트 이름 및 포트 번호를 나타낸다.
@@ -86,6 +89,7 @@
 #### 이러한 헤더는 웹 브라우저 및 웹서버, API 클라이언트 및 서버, 프록시 서버, 로드 밸런시 등의 HTTP 통신을 수행하는 모든 요소 간의 상호작용을 정의한다.
 #### 예를 들어 Content-Type 헤더는 클라이언트에게 응답 메시지의 형식을 알려주고 Authorization 헤더는 요청이 인증되었음을 나타낸다.
 #### 이러한 헤더는 HTTP 통신의 안전성과 효율성을 제어하는데 중요한 역할을 한다.
+
 
 ## 4. Request Body
 #### Request Body는 HTTP 요청의 일부로, 클라이언트가 서버로 전송하는 데이터를 포함하는 구성 요소이다.
