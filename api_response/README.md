@@ -1,6 +1,6 @@
 # API request
-#### API request는 client가 server에게 데이터를 요청하는 작업을 말한다. 
-#### API(request)에는 client에서 서버로 보내는 데이터와 요청 유형을 정의하는데 사용하는 다양한 메서드, 헤더, 본문 등이 포함된다.
+### API request는 client가 server에게 데이터를 요청하는 작업을 말한다. 
+### API(request)에는 client에서 서버로 보내는 데이터와 요청 유형을 정의하는데 사용하는 다양한 메서드, 헤더, 본문 등이 포함된다.
 
 ## 1. HTTP 메서드 (HTTP Method)
 #### client가 server에게 수행하고자 하는 작업을 나타낸다.
@@ -51,12 +51,12 @@
 #### 프래그먼트는 리소스 내에서 특정 위치나 섹션을 가리키는데 사용된다.
 #### 프래그먼트는 해시 기호("#")로 시작하며, 웹 페이지의 특정 섹션에 직접 이동하는데 사용된다.
 #### 예를 들어 "#section1"은 프래그먼트의 예이다.
-
-### 구성 요소를 모두 포함한 URI는 
-### '"https://www.example.com:8080/test/page.html?name=tom&age=20#section3" 
-### 이렇다.
-### client는 URI를 통해 원격 서버의 resource에 접근하고, resource의 위치를 정확하게 식별할 수 있다. 
-### URI는 URL과 URN(Uniform Resource Name)으로 나눌 수 있으며, URL은 resource의 위치를 식별하고, URN은 resource의 이름을 식별한다.
+### 요약
+#### 구성 요소를 모두 포함한 URI는 
+#### '"https://www.example.com:8080/test/page.html?name=tom&age=20#section3" 
+#### 이렇다.
+#### client는 URI를 통해 원격 서버의 resource에 접근하고, resource의 위치를 정확하게 식별할 수 있다. 
+#### URI는 URL과 URN(Uniform Resource Name)으로 나눌 수 있으며, URL은 resource의 위치를 식별하고, URN은 resource의 이름을 식별한다.
 
 ## 3. HTTP 헤더 (HTTP Header)
 ### 1. 요청 헤더 (Request Headers)
@@ -81,8 +81,30 @@
 #### 4-1. Content-Type: 메시지 본문의 미디어 유형을 지정한다.
 #### 4-2. Content-Length: 메시지 본문의 길이를 지정한다.
 #### 4-3. Content-Enconding: 메시지 본문의 압축 또는 인코딩 형식을 지정한다.
+### 요약
+#### HTTP 헤더는 클라이언트와 서버 간의 통신을 제어하고 메타 정보를 전달하는 중요한 역할을 한다.
+#### 이러한 헤더는 웹 브라우저 및 웹서버, API 클라이언트 및 서버, 프록시 서버, 로드 밸런시 등의 HTTP 통신을 수행하는 모든 요소 간의 상호작용을 정의한다.
+#### 예를 들어 Content-Type 헤더는 클라이언트에게 응답 메시지의 형식을 알려주고 Authorization 헤더는 요청이 인증되었음을 나타낸다.
+#### 이러한 헤더는 HTTP 통신의 안전성과 효율성을 제어하는데 중요한 역할을 한다.
 
-### HTTP 헤더는 클라이언트와 서버 간의 통신을 제어하고 메타 정보를 전달하는 중요한 역할을 한다.
-### 이러한 헤더는 웹 브라우저 및 웹서버, API 클라이언트 및 서버, 프록시 서버, 로드 밸런시 등의 HTTP 통신을 수행하는 모든 요소 간의 상호작용을 정의한다.
-### 예를 들어 Content-Type 헤더는 클라이언트에게 응답 메시지의 형식을 알려주고 Authorization 헤더는 요청이 인증되었음을 나타낸다.
-### 이러한 헤더는 HTTP 통신의 안전성과 효율성을 제어하는데 중요한 역할을 한다.
+## 4. Request Body
+#### Request Body는 HTTP 요청의 일부로, 클라이언트가 서버로 전송하는 데이터를 포함하는 구성 요소이다.
+#### Request Body는 주로 POST, 및 PUT 요청과 함께 사용되며, 데이터를 서버에 제출하거나 업데이트하는데 사용된다.
+### 1. 데이터 형식(Media Type)
+#### Request Body는 다양한 형식의 데이터를 포함할 수 있으며, 데이터는 텍스트, JSON, XML, 바이너리 또는 다른 형식으로 전송될 수 있다. 이러한 데이터 형식은 request의 Content-Type 헤더에 지정된다.
+#### 1-1. 'application/json': JSON 형식의 데이터를 나타낸다.
+#### 1-2. 'application/xml': XML 형식의 데이터를 나타낸다.
+#### 1-3. 'application/x-www.form-urlencoded': 웹 양식의 데이터를 나타낸다.
+#### 1-4. 'multipart/form-data': 파일 업로드와 함께 사용되는 데이터 형식을 나타낸다.
+### 2. 데이터 형식 지정
+#### Request Body의 데이터 형식은 Content-Type 헤더를 통해 명시적으로 지정되어야 한다. 서버는 이 데이터 형식에 따라 데이터를 올바르게 해석한다.
+### 3. 데이터 전송 방법
+#### 3-1. POST: 새로운 데이터를 서버에 제출한다. 일반적으로 form 데이터나 JSON 데이터와 함께 사용된다.
+#### 3-2. PUT: 요청 본문의 데이터를 지정한 리소스로 업데이트한다.
+#### 3-3. PATCH: 리소스의 부분 업데이트를 요청 본문을 사용하여 수행한다.
+#### 3-4. DELETE: Request Body를 사용하여 요청을 보낼 때, 삭제될 리소스를 나타내는 경우가 있다.
+### 4. 데이터 구조
+#### Request Body의 구조는 데이터 형식에 따라 다를 수 있다. 예를 들어 JSON 데이터의 Request Body는 JSON 객체 또는 배열 형태를 가질 수 있고 XML 데이터는 XML 구조를 따른다.
+### 5. Request Body의 크기 제한
+#### Request Body의 크기는 HTTP 서버 및 클라이언트에 따라 제한될 수 있으며, 큰 데이터를 전송하는 경우 주의해야 한다.
+#### * ***FastAPI를 사용하면 Request Body를 파싱하고 해당 데이터를 Pydantic 모델을 통해 파이썬 객체로 변환할 수 있다. 이를 통해 데이터 유효성 검사 및 응답 모델 생성을 수행할 수 있다.***
