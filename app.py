@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 from typing import Optional
 
 from fastapi import Cookie, Depends, FastAPI
@@ -21,3 +22,13 @@ def query_or_cookie_extractor(
 @app.get("/items/")
 async def read_query(query_or_default: str = Depends(query_or_cookie_extractor)):
     return {"q_or_cookie": query_or_default}
+=======
+from typing import Annotated
+from fastapi import FastAPI, File, UploadFile
+
+app = FastAPI()
+
+@app.post("/files/")
+async def create_file(file: bytes = File()):
+    return {"file_size": len(file)}
+>>>>>>> Stashed changes
